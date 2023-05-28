@@ -42,7 +42,7 @@ function onClick(e) {
     const imgBig = e.target.dataset.source;
     imgEl.src = imgBig;
     instance.show()
-  window.addEventListener('keydown', onEscKey);
+  document.addEventListener('keydown', onEscKey);
 
 }
 // window.removeEventListener('keydown', onEscKey);
@@ -52,7 +52,7 @@ function onEscKey(e) {
   console.log(e);
   if (e.code === 'Escape') {
     instance.close();
-    window.removeEventListener('keydown', onEscKey);
+    document.removeEventListener('keydown', onEscKey);
 
   }
 }
