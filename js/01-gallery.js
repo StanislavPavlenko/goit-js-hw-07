@@ -45,14 +45,11 @@ function onClick(e) {
   document.addEventListener('keydown', onEscKey);
 
 }
-// window.removeEventListener('keydown', onEscKey);
-
 
 function onEscKey(e) {
-  console.log(e);
   if (e.code === 'Escape') {
     instance.close();
     document.removeEventListener('keydown', onEscKey);
 
   }
-}
+};
