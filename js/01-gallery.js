@@ -30,17 +30,29 @@ gallery.addEventListener('click', onClick);
 const instance = basicLightbox.create(`
     <img src="">
 `)
-
+console.log(instance);
 const imgEl = instance.element().querySelector('img');
 
+
 function onClick(e) {
-    if (!e.target.classList.contains("gallery__image")) {
-    return;
+    if (!e.target.nodeName) {
+      return;
   }
     e.preventDefault();
     const imgBig = e.target.dataset.source;
     imgEl.src = imgBig;
     instance.show()
-    
-}
+  window.addEventListener('keydown', onEscKey);
 
+}
+// window.removeEventListener('keydown', onEscKey);
+
+
+function onEscKey(e) {
+  console.log(e);
+  if (e.code === 'Escape') {
+    instance.close();
+    window.removeEventListener('keydown', onEscKey);
+
+  }
+}
